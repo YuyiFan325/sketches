@@ -1,23 +1,31 @@
 let t = 0;
 
+
 function setup(){
-	createCanvas(600,600);
+	createCanvas(600,600,WEBGL);
 	colorMode(RGB,100);
 }
 
 function draw(){
-	background(255);
-	translate(width/2,height/2);
+	background(255,255,0);
+	//translate(width/2,height/2);
+	rotateX(-QUARTER_PI/2);
+	rotateY((1/sqrt(2))/2)
+	noStroke();
+	blendMode(ADD);
+	fill(100,100,100);
 	stroke(0);
 	strokeWeight(1.5);
 
-	for(let i = 0;i<100;i++){
-	line(x1(t+i),y1(t+i),x2(t+i)+20,y2(t+i)+20);
+	ortho(250,-250,250,-250,0,1000);
+
+	for(let i = 0;i<20;i++){
+	plane(x1(t+i),y2(t+i));
 	}
 	t+=0.15;
 }
 function x1(t){
-  return sin(t/10)*125+sin(t/20)*125+sin(t/30)*125;
+  return sin(t/10)*25+sin(t/20)*25+sin(t/30)*25;
 }
 
 function y1(t){

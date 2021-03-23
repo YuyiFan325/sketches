@@ -26,14 +26,30 @@ function draw(){
 
 	//big G form
 	for (let z=0;z<height;z+=w*2)
-		for (let x=0; x<width; x+=w){
+		for (let x=0; x<width/2; x+=w){
 			push();
 			let d=dist(x,z,width/2,height/2);
-			let offset=map(d,0,maxD,-2,2);
+			let offset=map(d,0,maxD,-1,1);
 			let a=angle + offset;
-			let h=map(sin(a),-1,1,250,300);
+			let h=sin(x)+x/4+map(sin(a),-1,1,260,300);
 			fill(255);
 			//normalMaterial();
+			translate(x-width/2,0,z-height/2);
+			box(w-2,h*2,w-2);
+			//rect(x-width/2 + w/2,0,w-2,h);
+			pop();
+	}
+
+	for (let z=0;z<height;z+=w*2)
+		for (let x=0; x<width/2; x+=w){
+			push();
+			let d=dist(x,z,width/2,height/2);
+			let offset=map(d,0,maxD,-1,1);
+			let a=angle + offset;
+			let h=sin(x)+x/4+map(sin(a),-1,1,260,300);
+			fill(255);
+			//normalMaterial();
+			rotateY(PI);
 			translate(x-width/2,0,z-height/2);
 			box(w-2,h*2,w-2);
 			//rect(x-width/2 + w/2,0,w-2,h);
@@ -47,7 +63,7 @@ function draw(){
 	rotateY(PI);
 
 	//small black space
-	for (let z=0;z<height;z+=w*2)
+	for (let z=0;z<height/3;z+=w*2)
 		for (let x=0; x<width; x+=w){
 			push();
 			let d=dist(x,z,width/2,height/2);
@@ -56,7 +72,7 @@ function draw(){
 			let h=map(sin(a/2),-1,1,250,300);
 			fill(0);
 			//normalMaterial();
-			translate(x-width,0,z-height/2);
+			translate(x-width,0,(z-height/6)*5);
 			box(w*2,h/2,w*2);
 			//rect(x-width/2 + w/2,0,w-2,h);
 			pop();
@@ -70,16 +86,16 @@ function draw(){
 
 
 	//little serif
-	for (let z=0;z<height;z+=w*2)
-		for (let x=0; x<width; x+=w){
+	for (let z=0;z<height/3;z+=w*2)
+		for (let x=0; x<width/2; x+=w*2){
 			push();
 			let d=dist(x,z,width/2,height/2);
-			let offset=map(d,0,maxD,-2,2);
+			let offset=map(d,0,maxD,0.5,-0.5);
 			let a=angle + offset;
-			let h=map(sin(a),-1,1,250,300);
+			let h=sin(x)-x/4+map(sin(a),-1,1,300,330);
 			fill(255);
 			//normalMaterial();
-			translate(x+width/4,h*1.2,z-height/6);
+			translate(x+width/1.4,h*1.3,(z-height/6)*6.2);
 			box(w*2,h*2,w*2);
 			//rect(x-width/2 + w/2,0,w-2,h);
 			pop();
@@ -88,6 +104,6 @@ function draw(){
 	angle+=0.1;
 }
 
-/*function mousePressed(){
-	saveCanvas("sketch-07","jpg");
-}*/
+function mousePressed(){
+	saveCanvas("sketch-15","jpg");
+}
