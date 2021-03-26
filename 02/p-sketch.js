@@ -1,25 +1,27 @@
 function setup(){
-	createCanvas(600,600);
+	createCanvas(800,800);
 	background(255);
 
 	stroke(0);
-	strokeWeight(60);
+	strokeWeight(110);
 	strokeCap(SQUARE);
-	arc(width/2,height/2,300,300,0,TWO_PI-QUARTER_PI*1.5);
+	arc(width/2,height/2,500,500,0,TWO_PI-QUARTER_PI*1.5);
 
 	stroke(255);
-	strokeWeight(1);
+	strokeWeight(2);
 	noFill();
-	arc(width/2,height/2, 335,335,0,TWO_PI-QUARTER_PI*1.5);
+	arc(width/2,height/2, 570,570,0,TWO_PI-QUARTER_PI*1.5);
 
 	stroke(0);
-	strokeWeight(4);
-	line(width/2, height/2,480,height/2);
+	strokeWeight(5);
+	line(width/2, height/2,705,height/2);
 
 	fill(0);
-	rect(width/2,height/2,7,7);
+	rect(width/2,height/2,13,13);
 }
 
-function mousePressed(){
-	saveCanvas("sketch-2","jpg");
+function keyPressed(){
+	if(keyCode==ENTER){
+		saveCanvas("sketch-2","jpg");
+	}
 }

@@ -1,7 +1,8 @@
 var particles=[];
 
+
 function setup(){
-	createCanvas(1000,1000);
+	createCanvas(800,800);
 	particle=new Particle(5,5);
 }
 
@@ -27,8 +28,8 @@ class Particle{
 	}
 
 	update(){
-		this.x=this.x+random(-5,5);
-		this.y=this.y+random(-5,5);
+		this.x=this.x+random(-1,1);
+		this.y=this.y+random(-1,1);
 
 		let v=createVector(this.x,this.y);
 
@@ -42,12 +43,12 @@ class Particle{
 	show(){
 		stroke(0);
 		fill(0);
-		ellipse(this.x,this.y,5,5);
+		rect(this.x,this.y,5,5);
 
 		for (var i=0;i<this.history.length;i++){
 			var pos=this.history[i]; 
 			fill(random(255));
-			ellipse(pos.x,pos.y,i,i);
+			rect(pos.x,pos.y,i,i);
 		}
 	}
 }

@@ -1,48 +1,46 @@
-let t = 0;
+// Daniel Shiffman
+// The Pixel Array
+// Video: https://www.youtube.com/watch?v=nMUMZ5YRxHI&t=42s
 
+let font;
+
+function preload(){
+	font=loadFont('BlackOpsOne-Regular.ttf');
+}
 
 function setup(){
-	createCanvas(600,600,WEBGL);
+	createCanvas(800,800);
 	colorMode(RGB,100);
-}
 
-function draw(){
-	background(255,255,0);
-	//translate(width/2,height/2);
-	rotateX(-QUARTER_PI/2);
-	rotateY((1/sqrt(2))/2)
-	noStroke();
-	blendMode(ADD);
-	fill(100,100,100);
-	stroke(0);
-	strokeWeight(1.5);
+	
+	loadPixels();
 
-	ortho(250,-250,250,-250,0,1000);
-
-	for(let i = 0;i<20;i++){
-	plane(x1(t+i),y2(t+i));
+	for(var y=0;y<height;y++){
+		for(var x=0;x<width;x++){
+			var index=(x+y*width)*4;
+			pixels[index+0]=x;
+			pixels[index+1]=0;
+			pixels[index+2]=y;
+			pixels[index+3]=255;
+		}
 	}
-	t+=0.15;
-}
-function x1(t){
-  return sin(t/10)*25+sin(t/20)*25+sin(t/30)*25;
-}
+	updatePixels();
 
-function y1(t){
-  return cos(t/10)*125+cos(t/20)*125+cos(t/30)*125;
-}
 
-function x2(t){
-  return sin(t/15)*125+sin(t/25)*125+sin(t/35)*125;
-}
+	var points=font.textToPoints('G',90,650,800);
 
-function y2(t){
-  return cos(t/15)*125+cos(t/25)*125+cos(t/35)*125;
+	for(var i=0;i<points.length;i++){
+		var pt=points[i];
+		//var d=map(mouseX,0,800,0,20);
+		stroke(255);
+		strokeWeight(5);
+		line(pt.x,pt.y,pt.x+20,pt.y+20);
+	}
 }
 
 function keyPressed(){
-	if(keyCode===ENTER){
-		saveCanvas("sketch-11","jpg");
+	if(keyCode==ENTER){
+		saveCanvas("sketch-12","jpg");
 	}
 }
 

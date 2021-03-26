@@ -1,24 +1,26 @@
 function setup(){
-	createCanvas(600,600);
+	createCanvas(800,800);
 	background(255);
 
 	noFill();
 	stroke(0);
-	strokeWeight(15);
-	ellipse(width/2,height/2,300,300);
+	strokeWeight(25);
+	ellipse(width/2,height/2,500,500);
 
-	strokeWeight(1);
-	ellipse(width/2,height/2,200,200);
+	strokeWeight(3);
+	ellipse(width/2,height/2,400,400);
 
 	noStroke();
 	fill(255);
-	rect(325,265,150,80);
+	rect(450,320,400,150);
 
 	fill(0);
-	rect(325,310,135,40);
-	rect(448,350,12,70);
+	rect(450,395,215,75);
+	rect(650,395,15,175);
 }
 
-function mousePressed(){
+function keyPressed(){
+	if(keyCode==ENTER){
 	saveCanvas("sketch-01","jpg");
+	}
 }

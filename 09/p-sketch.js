@@ -1,52 +1,35 @@
-//let c=color(0, 126, 255, 102);
+var img;
+
+function preload(){
+	img=loadImage('G4.jPG');
+}
 
 function setup(){
-	createCanvas(500,500, WEBGL);
+	createCanvas(800,800);
+	background(255);
+
 }
 
 function draw(){
-	background(255);
-	rotate(frameCount*0.02);
+	unitSize=10
+		for(i=0;i<height;i+=unitSize){
+			for(j=10;j<width;j+=unitSize){
+				pixelColor=img.get(j,i);
 
-	for(let j=0;j<5;j++){
-		push();
-		for(let i=0; i<8; i++){
-			translate(
-				cos(frameCount+j)+i,
-				sin(frameCount+j)+i,
-				i*random(10)
-				);
-				push();
-				rotate(frameCount*0.02);
-				ambientLight(500);
-				ambientMaterial(255,204,0);
-				torus(100, 5);
-				translate(100,600,-100);
-				pop();
-
-			push();
-			translate(
-				sin(frameCount+i)*j,
-				sin(frameCount+i)*j,
-				i*random(10)
-				);
-				push();
-				rotate(frameCount*0.02);
-				ambientLight(100);
-				ambientMaterial(70, 130, 230);
-				plane(10,1);
-				pop();
-			pop();
-
+				fill(pixelColor);
+				noStroke();
+				let x=map(mouseX,0,width,5,30)
+				let y=map(mouseY,0,height,5,30)
+				ellipse(j,i,y,x);
+				//rotateY(QUARTER_PI);
+			}
 		}
-		pop();
-
-	}
 }
 
+
 function keyPressed(){
-	if(keyCode===ENTER){
-		saveCanvas("sketch-09-2","jpg");
+	if(keyCode==ENTER){
+		saveCanvas("sketch-09","jpg");
 	}
 }
 

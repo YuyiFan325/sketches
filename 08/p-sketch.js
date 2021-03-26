@@ -1,11 +1,11 @@
 var particles=[];
 
 function setup(){
-	createCanvas(1000,1000);
+	createCanvas(800,800);
 	particle=new Particle(5,5);
 }
 
-function mousePressed(){
+function mouseDragged(){
 	particles.push(new Particle(mouseX,mouseY));
 }
 
@@ -53,9 +53,7 @@ class Particle{
 }
 
 function keyPressed(){
-	if(key==='a'){
-		saveCanvas("sketch-08","jpg");
-	}else{
+	if(keyCode==ENTER){
 		saveCanvas("sketch-08","jpg");
 	}
 }

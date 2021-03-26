@@ -1,39 +1,41 @@
 let t = 0;
 
 function setup(){
-	createCanvas(600,600);
-	colorMode(RGB,100);
+	createCanvas(800,800);
+	//colorMode(HSB,height,height,height);
+	//createLoop({duration:3,gif:true})
 }
 
 function draw(){
 	background(255);
 	translate(width/2,height/2);
-	stroke(0);
 	strokeWeight(1.5);
 
 	for(let i = 0;i<100;i++){
-	line(x1(t+i),y1(t+i),x2(t+i)+20,y2(t+i)+20);
+	line(x1(t+i),y1(t+i),x2(t+i)*10,y2(t+i)*10);
+	stroke(random(255),random(50),random(100),mouseX);
 	}
 	t+=0.15;
 }
+
 function x1(t){
-  return sin(t/10)*125+sin(t/20)*125+sin(t/30)*125;
+	return sin(t/10)*150+sin(t/20)*150+sin(t/30)*150;
 }
 
 function y1(t){
-  return cos(t/10)*125+cos(t/20)*125+cos(t/30)*125;
+	return cos(t/10)*150+cos(t/20)*150+cos(t/30)*150;
 }
 
 function x2(t){
-  return sin(t/15)*125+sin(t/25)*125+sin(t/35)*125;
+	return sin(t/15)*150+sin(t/25)*150+sin(t/35)*150;
 }
 
 function y2(t){
-  return cos(t/15)*125+cos(t/25)*125+cos(t/35)*125;
+	return cos(t/15)*150+cos(t/25)*150+cos(t/35)*150;
 }
 
 function keyPressed(){
-	if(keyCode===ENTER){
+	if(keyCode==ENTER){
 		saveCanvas("sketch-11","jpg");
 	}
 }

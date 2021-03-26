@@ -5,16 +5,17 @@ let ma;
 let maxD;
 
 function setup(){
-	createCanvas(400,400,WEBGL);
+	createCanvas(800,800,WEBGL);
 	ma=atan(1/sqrt(2));
 	maxD=dist(0,0,63,63);
 	angleMode(DEGREES);
+	//createLoop({duration:3,gif:true});
 
 };
 
 function draw(){
 	background(0);
-	ortho(-900,900,-900,900,0,1000);
+	ortho(-1600,1600,-1600,1600,0,2000);
 
 	//translate(0,50,-50);
 	rotateX(mouseY);
@@ -57,7 +58,7 @@ function draw(){
 			pop();
 	}
 
-	ortho(-500,500,-500,500,0,1500);
+	ortho(-1000,1000,-1000,1000,0,3000);
 
 	//translate(0,50,-50);
 	rotateX(PI);
@@ -79,7 +80,7 @@ function draw(){
 			pop();
 	}
 
-		ortho(-1000,1000,-1000,1000,0,2000);
+		ortho(-2000,2000,-2000,2000,0,4000);
 
 	//translate(0,50,-50);
 	rotateX(PI);
