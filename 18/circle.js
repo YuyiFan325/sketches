@@ -11,7 +11,7 @@ function Circle(x, y) {
 
   this.grow = function() {
     if (this.growing) {
-      this.r += 5;
+    this.r += 5;
     }
   };
 
@@ -29,6 +29,6 @@ function Circle(x, y) {
       this.x - this.r <= 0 ||
       this.y + this.r >= height ||
       this.y - this.r <= 0
-    );
-  };
+      );
+    };
 }
