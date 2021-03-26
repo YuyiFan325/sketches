@@ -11,7 +11,7 @@ function preload(){
 function setup(){
 	createCanvas(800,800);
 	colorMode(RGB,100);
-
+	pixelDensity(1);
 	
 	loadPixels();
 
