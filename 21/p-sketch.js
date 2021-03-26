@@ -27,11 +27,11 @@ function draw(){
     }
   }
 
-  for(let i=0;i<width;i+=20){
-    for(let j=0;j<height;j+=20){
-      let size=dist(mouseX,mouseY,i,j);
+  for(let x=0;x<width;x+=20){
+    for(let y=0;y<height;y+=20){
+      let size=dist(mouseX,mouseY,x,y);
       size=(size/max_distance)*60;
-      rect(i,j,size,size);
+      rect(x,y,size,size);
       fill(0,0,0,255);
     }
   }
